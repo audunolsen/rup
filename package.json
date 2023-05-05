@@ -1,9 +1,22 @@
 {
-  "name": "rup",
+  "name": "sheepit",
   "version": "0.0.1",
+  "author": "Audun Meek Olsen",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/audunolsen/sheepit.git"
+  },
+  "private": false,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
-  "main": "./index.cjs",
-  "types": "./src/index.d.ts",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": "./dist/",
+    "./dist/internals/*": null
+  },
   "scripts": {
     "swc": "swc src ./src --out-dir ./dist --source-maps",
     "compile": "concurrently --raw 'npm run swc' 'tsc'",
