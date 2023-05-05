@@ -1,6 +1,6 @@
 {
   "name": "sheepit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Audun Meek Olsen",
   "repository": {
     "type": "git",
@@ -11,6 +11,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "dist/**/*"
+  ],
   "type": "module",
   "main": "./dist/index.js",
   "exports": {
@@ -20,7 +23,8 @@
   "scripts": {
     "swc": "swc src ./src --out-dir ./dist --source-maps",
     "compile": "concurrently --raw 'npm run swc' 'tsc'",
-    "build": "rimraf ./dist && npm run compile --silent"
+    "build": "rimraf ./dist && npm run compile --silent",
+    "prepare": "npm run build"
   },
   "devDependencies": {
     "@swc/cli": "^0.1.62",
